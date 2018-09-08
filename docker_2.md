@@ -44,3 +44,46 @@ $ docker rm 容器名
 8.删除镜像
 ```docker
 $ docker rmi 镜像名或id
+```
+
+## 守护式容器
+可以长期运行 不需要交互式会话
+
+1.以守护形式运行容器
+
+```docker
+$ docker run -i -t IMAGE /bin/bash
+```
+ctrl p 和 Ctrl q 用来退出bash 容器在后台运行
+
+2.访问运行中的容器
+```docker
+$ docker attach 容器名
+```
+3.启动守护式容器
+```docker
+$ docker run -d IMAGES [command][ARG..]
+```
+-d 后台运行 运行结束 容器自动停止
+
+4.查看后台运行的容器的日志
+```docker
+$ docker logs [-f][-t][--tail] 容器名
+```
+    -f --follows = true |false 默认为false 为true 一直跟踪
+    -t --timestamps = true |false 默认为false true  添加时间戳
+    --tail 默认为all
+
+5.查看运行中容器内的进程
+```docker
+$ docker top 容器名
+```    
+6.在运行中的容器内启动新进程
+```docekr
+$ docker exec [-d][-i][-t] 容器名 [command][ARG..]
+```
+7.停止守护式容器
+```docker
+$ docker stop 容器名 等待容器停止 返回信息
+$ docker kill 容器名 直接结束容器所有操作
+```
