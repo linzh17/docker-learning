@@ -70,3 +70,23 @@ $ docker commit [options] container [repository[:tag]] 通过容器构建
     -m,--message=""
     -p,--pause=true 构建时容器暂停
 
+```
+2. 使用dockerfile 构建镜像
+   ```
+   1. 创建Dockerfile
+   2.$ docker build
+   e.g
+   #first dockerfile
+   From ubuntu:14.04  #镜像的基础
+   MAINTAINER linzh17 "15018279123@163.com" #维护者
+   RUN apt-get update                       #镜像中执行的命令
+   RUN apt-get install -y nginx
+   EXPOSE 80                                #暴露的端口
+
+   $docker build [options] PATH|URL |-
+   --force-rm=false
+   --no-cache=fasle
+   --pull=false
+   -q,--quiet=false
+   -rm=true
+   -t,-tag="" #指定构建的镜像的名字
