@@ -6,7 +6,7 @@
 
 ### remote api
     restful api
-![avatat][dokcer_learning/docker_cs_remote_api.png]
+![avatat][https://github.com/linzh17/docker-learning/blob/master/docker_cs_remote_api.png?raw=true]
 
 ###连接方式
 
