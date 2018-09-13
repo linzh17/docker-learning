@@ -75,5 +75,32 @@ docker客户端与守护进程的连接
 
 ## docker 的远程访问
 
- 
+### 服务器端的配置
+    修改docker守护进程的启动选项
+    -H tcp://host:port
+        unix:///path/to/socket,
+        fd：//* or fd://socketfd
+    docker 18 守护进程的默认配置为
+    -H fd:// 
+    1.非systemctl 配置的系统 修改/etc/default/docker 中opts的配置
+    后增加-H tcp:0.0.0.0:2375
+    2.systemctl 配置的系统  
+    修改/lib/systemd/system/docker.service
+    在ExecStart 后追加参数 -H tcp://0.0.0.0:2375 
+    服务器设置为远程服务器时，如果设置中-H的默认设置被删除，服务器的docker客户端无法连接服务器本地服务
+    需要将docker的默认配置添加回去，-H 可以配置多个
+### 客户端的配置
+    客户端远程访问
+    修改客户端配置
+    默认配置与服务器配置一样
+    $ docker -H http://服务器地址：端口(2375) 
+    为了便于直接操作，便于连接
+    可以添加服务器地址到环境变量中
+    docker客户端会自动连接远程服务器
+    $ export DOCKER_HOST="tcp://服务器：端口"
+    使用完远程连接，要使用本地服务
+    可以
+    $ export DOCKER_HOST=""
+
+
 
