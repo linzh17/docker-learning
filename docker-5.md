@@ -54,9 +54,26 @@ docker客户端与守护进程的连接
     $ ps -ef |grep docker
     $ sudo status docker //不能使用 ，可能与版本有关，原因不明
     $ sudo service docker status // 可以代替上诉语句
-    //更改守护进程配置后
+    //更改守护进程配置后 例如 增加docker_opts="--label name=docker_server_1"
     需要用到的命令
     $ service docker stop/start/restart
     //更改守护进程启动配置后 运行 restart 语句 没有发生更改
     //原因可能与系统版本有关，尚未解决
+
+    解决方法
+    在以systemd方式配置的系统 ，应该修改systemd配置文件
+    $ cd/lib/systemd/system
+    $ vim docker.service
+    在 ExecStart 后追加参数 例如--lable name=dockr_server_1
+    然后重启docker daemon
+    $ sudo systemctl daemon-reload
+    $ sudo service docker restart
+    $ docker info  //就可以看见配置改变生效
+
+    注意：如果有daemon.json文件，应该注意文件中的配置不和启动配置选项冲突，如果冲突无法正常启动docker服务
+
+
+## docker 的远程访问
+
+ 
 
