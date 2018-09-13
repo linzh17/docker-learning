@@ -8,7 +8,7 @@
     restful api
 ![avatat](https://github.com/linzh17/docker-learning/blob/master/docker_cs_remote_api.png?raw=true)
 
-###连接方式
+### 连接方式
 
 docker客户端与守护进程的连接
 
@@ -20,4 +20,43 @@ docker客户端与守护进程的连接
     e.g
     #socket连接
     nc -U /var/run/docker.sock
-    GET /info HTTP/1.1
+    GET /info HTTP/1.1  //连接失败，尚未解决
+
+## docker 守护进程的配置和操作
+1.启动配置文件
+
+    /etc/default/docker
+    文件基础内容如下
+    # Docker Upstart and SysVinit configuration file
+
+    #
+    # THIS FILE DOES NOT APPLY TO SYSTEMD
+    #
+    #   Please see the documentation for "systemd drop-ins":
+    #   https://docs.docker.com/engine/admin/systemd/
+    #
+
+    # Customize location of Docker binary (especially for development testing).
+    #DOCKERD="/usr/local/bin/dockerd"
+    //设置docker程序存放地址
+    # Use DOCKER_OPTS to modify the daemon startup options.
+    #DOCKER_OPTS="--dns 8.8.8.8 --dns 8.8.4.4" //设置启动选项
+    # If you need Docker to use an HTTP proxy, it can also be specified here.
+    #export http_proxy="http://127.0.0.1:3128/"
+    //环境变量的值
+
+    # This is also a handy place to tweak where Docker's temporary files go.
+    #export DOCKER_TMPDIR="/mnt/bigdrive/docker-tmp"
+    ~                                                   
+2.相关命令
+
+    查看守护进程
+    $ ps -ef |grep docker
+    $ sudo status docker //不能使用 ，可能与版本有关，原因不明
+    $ sudo service docker status // 可以代替上诉语句
+    //更改守护进程配置后
+    需要用到的命令
+    $ service docker stop/start/restart
+    //更改守护进程配置后 运行 restart 语句 没有发生更改
+    //原因可能与系统版本有关，尚未解决
+
