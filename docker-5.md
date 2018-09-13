@@ -57,6 +57,6 @@ docker客户端与守护进程的连接
     //更改守护进程配置后
     需要用到的命令
     $ service docker stop/start/restart
-    //更改守护进程配置后 运行 restart 语句 没有发生更改
+    //更改守护进程启动配置后 运行 restart 语句 没有发生更改
     //原因可能与系统版本有关，尚未解决
 
