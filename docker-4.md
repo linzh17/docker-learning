@@ -90,3 +90,97 @@ $ docker commit [options] container [repository[:tag]] 通过容器构建
    -q,--quiet=false
    -rm=true
    -t,-tag="" #指定构建的镜像的名字
+
+### dockerfile指令
+   指令格式 
+
+    #注释
+    大写的指令名 指令参数
+
+    e.g.
+     #first dockerfile
+    From ubuntu:14.04  #镜像的基础
+    MAINTAINER linzh17 "15018279123@163.com" #维护者
+    RUN apt-get update                       #镜像中执行的命令
+    RUN apt-get install -y nginx
+    EXPOSE 80                                #暴露的端口
+
+#### FROM
+    FROM<image>
+    FROM<image>:<tag> #必须为第一条未注释的指令
+
+#### MAINTAINER
+    MAINTAINER<name>
+    指定镜像的作者信息，包含镜像的所有者和联系信息
+
+##### RUN
+    RUN<command>(shell模式)
+    e.g
+    /bin/sh -c command
+    RUN echo hello
+
+    RUN["executable","param1","param2"] (exec模式)
+    e.g
+    RUN["/bin/bash","-c","echo hello"]
+
+##### EXPOSE
+    EXPOSE<port>[<port>..]
+    指定运行该镜像的容器使用的端口 可以指定一个或多个端口
+    注意：运行该容器时，run命令中还是得指定映射的端口
+
+#### CMD
+    CMD 命令是在容器运行时运行的，会被docker run中指定的命令所覆盖，
+    CMD 指定的是容器运行时的默认指令，而RUN命令是在构建镜像时运行的命令
+
+    CMD命令的几种模式
+    CMD["executable","param1","param2"](exec 模式)
+    CMD command param1 param2(shell 模式)
+    CMD["param1","param2"](作为ENTRYPOINT指令的默认参数)
+
+#### ENTYPOINT
+    与CMD命令类似，不会被docker run 命令中指定的命令所覆盖
+    ENTYPOINT["executable","param1","param2"](exec 模式)
+    ENTYPOINT command param1 param2(shell 模式)
+
+    如果要覆盖
+    docker run --entrypoint
+
+####  ADD & COPY
+
+    这两个指令将文件或目录复制到docker构建的镜像中
+    来源地址可以使本地或者远程的URL,目标路径要指定镜像中的绝对路径
+    1.ADD
+    ADD<src>..<dest>
+    ADD["<src>".."<dest>"](适用于文件路劲中有空格)
+
+    2.COPY
+    COPY<src>..<dest>
+    COPY["<src>".."<dest>"](适用于文件路劲中有空格)
+
+    ADD包含类似tar的解压功能
+    单纯复制文件，Docker推荐使用COPY
+
+#### VOLUME
+    VOLUME["/data"] 
+    向基于镜像构建的容器提供卷 一个卷可以存一个或多个容器的特定目录
+    可以绕过联合文件系统，可以实现数据共享，数据持久性等功能
+
+#### WORKDIR 
+    WORKDIR /path/to/workdir //使用绝对路径 使用相对路径，路径会一直传递下去
+    指定镜像在创建一个新容器时，在容器内部中指定工作目录，CMD和ENTRYPOINT 指定的指令都会在这个工作目录中执行
+
+
+#### ENV
+    ENV<key><value>
+    ENV<key>=<value>...
+    用于设置环境变量
+
+#### USER daemon
+    指定镜像被什么用户运行,默认使用root用户
+    e.g
+    USER nginx    
+#### ONBUILD
+    为镜像添加触发器
+    当这个镜像被其他镜像作为基础镜像构建时 触发器会被执行，当子镜像构建时 会在构建过程中插入触发器指令
+
+    ONBUILD[INSTRUCTION]
