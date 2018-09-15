@@ -184,3 +184,30 @@ $ docker commit [options] container [repository[:tag]] 通过容器构建
     当这个镜像被其他镜像作为基础镜像构建时 触发器会被执行，当子镜像构建时 会在构建过程中插入触发器指令
 
     ONBUILD[INSTRUCTION]
+
+### dockerfile的构建过程
+
+    从基础镜像运行一个容器
+    执行一条容器，对容器做出修改
+    执行类似docker commit的操作，提交一个新的镜像层
+    再基于刚提交的镜像运行一个新的容器
+    执行dockerfile中的下一条指令，直至所有指令执行完毕
+
+
+#### 使用中间层镜像
+    docker build 命令会删除中间镜像的容器，不会删除中间容器
+    可以在中间层容器进行调试，查找错误
+
+#### 构建缓存
+    每一步构建过程都是记录在镜像中，这样原来的镜像类似于缓存
+    再一次构建时，将会很快
+    
+    不使用缓存时
+    1.
+    $ docker build --no-cache
+
+    2.在dockerfile中
+    设置EVN 参数  设置缓存刷新时间，后续的命令在构建时就会不使用缓存
+
+#### 查看镜像的构建过程
+    $ docker history image    
