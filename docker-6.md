@@ -4,7 +4,7 @@
 
     $ ifconfig
     如下图
-    ![avatat](https://github.com/linzh17/docker-learning/blob/master/2018-09-15%2014-55-44%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png?raw=true)
+    ![avatar](https://github.com/linzh17/docker-learning/blob/master/2018-09-15%2014-55-44%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png?raw=true)
 
 ### docker0 
     linux 虚拟网桥
