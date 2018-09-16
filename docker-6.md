@@ -21,6 +21,9 @@
     查看网桥
     $ sudo brctl show
     运行容器时，docker 会自动生成一个网桥
+    原理下图
+![avatar](https://github.com/linzh17/docker-learning/blob/master/%E8%99%9A%E6%8B%9F%E7%BD%91%E6%A1%A5.png?raw=true)
+
 
 ### 自定义docker0
     $ sudo ifconfig docker0 ip-address netmask ...
