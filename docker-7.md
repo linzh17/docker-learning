@@ -38,6 +38,8 @@
 
 ## 数据卷容器
     命名的容器挂载数据卷，其他容器通过挂载这个容器实现数据共享，挂载数据卷的容器，就叫做数据卷容器
+### 架构
+![avatar](https://github.com/linzh17/docker-learning/blob/master/%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8%E6%9E%B6%E6%9E%84.png?raw=true)
 
 ###    挂载数据卷容器的方法
     $ docker run --volumes-from [CONTAINER NAME]
