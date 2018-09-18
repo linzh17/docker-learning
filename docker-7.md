@@ -9,6 +9,8 @@
 ### 架构
 ![avatar](https://github.com/linzh17/docker-learning/blob/master/%E6%95%B0%E6%8D%AE%E5%8D%B7%E6%9E%B6%E6%9E%84.png?raw=true)
 
+#### 数据卷的生命周期和docker容器的生命周期是分离的
+
 ###    特点
     数据卷在容器启动时初始化，如果容器使用的镜像在挂载点包含了数据，这些数据会拷贝到新初始化的数据卷中
     数据卷可以在容器之间共享和重用
