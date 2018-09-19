@@ -56,7 +56,6 @@
     架构
 ![avatar](https://github.com/linzh17/docker-learning/blob/master/%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%A4%87%E4%BB%BD.png?raw=true)       
     $ docker run --volumes-from [container name] -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar
-    
     -v 指定备份的路径或目录
     tar cvf /backup/backup.tar 容器的运行命令
     e.g 
