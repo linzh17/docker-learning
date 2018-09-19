@@ -50,3 +50,15 @@
     数据卷容器被删除后，其他挂载数据卷容器的容器，数据目录依然存在
     原因：数据卷容器的作用起到一个传递者的作用，将数据卷的配置信息传递到需要挂载数据卷的容器上
     ，然后当这个数据卷还在被其他容器使用时，这个数据卷就不会被删除
+
+### 数据卷的备份和还原
+####    数据备份方法
+    $ docker run --volumes-from [container name] -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar
+    -v 指定备份的路径或目录
+    tar cvf /backup/backup.tar 容器的运行命令
+    e.g 
+    docker run --volumes-from dvt5 -v ~/backup:/backup --name dvt10 ubuntu tar cvf /backup/dvt5.tar /datavolume
+
+####    数据还原方法
+    $ docker run --volumes-from [container name] -v $(pwd):/backup ubuntu tar xvf /backup/backup.tar [container data volume]
+
