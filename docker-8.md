@@ -40,9 +40,9 @@
 ### 使用open vSwitch 实现跨主机容器连接
 
 #### 原理
-!avatar[https://github.com/linzh17/docker-learning/blob/master/ovs.png?raw=true]
-!avatar[https://github.com/linzh17/docker-learning/blob/master/openswitch.png?raw=true]
-!avatar[https://github.com/linzh17/docker-learning/blob/master/gre.png?raw=true]
+![avatar](https://github.com/linzh17/docker-learning/blob/master/ovs.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/openswitch.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/gre.png?raw=true)
 
 #### 操作
     建立ovs网桥
