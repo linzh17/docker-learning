@@ -4,7 +4,7 @@
 
 ### 使用网桥实现跨主机容器连接
 #### 原理
-![avatar](https://github.com/linzh17/docker-learning/blob/master/%E7%BD%91%E6%A1%A5%E8%BF%9E%E6%8E%A5%E5%8E%9F%E7%90%86.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/%E7%BD%91%E6%A1%A5%E8%BF%9E%E6%8E%A5%E5%8E%9F%E7%90%86.png?raw=true)
 
 #### 网络设置
     修改/etc/network/interfaces 文件
@@ -40,9 +40,9 @@
 ### 使用open vSwitch 实现跨主机容器连接
 
 #### 原理
-![avatar](https://github.com/linzh17/docker-learning/blob/master/ovs.png?raw=true)
-![avatar](https://github.com/linzh17/docker-learning/blob/master/openswitch.png?raw=true)
-![avatar](https://github.com/linzh17/docker-learning/blob/master/gre.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/ovs.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/openswitch.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/gre.png?raw=true)
 
 #### 操作
     建立ovs网桥
@@ -84,7 +84,7 @@
 
 #### 简介
     建立一个虚拟的网络，实现连接
-![avatar](https://github.com/linzh17/docker-learning/blob/master/weave.png?raw=true)    
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/weave.png?raw=true)    
     
 
 #### 下载与安装

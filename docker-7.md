@@ -7,7 +7,7 @@
     数据卷设计的目的，在于数据的永久化，它完全独立与容器的生存周期，因此，docker不会在容器删除时删除其挂载的数据卷，也不会存在类似的垃圾收集机制，对容器引用的数据卷进行处理
     
 ### 架构
-![avatar](https://github.com/linzh17/docker-learning/blob/master/%E6%95%B0%E6%8D%AE%E5%8D%B7%E6%9E%B6%E6%9E%84.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/%E6%95%B0%E6%8D%AE%E5%8D%B7%E6%9E%B6%E6%9E%84.png?raw=true)
 
 #### 数据卷的生命周期和docker容器的生命周期是分离的
 
@@ -41,7 +41,7 @@
 ## 数据卷容器
     命名的容器挂载数据卷，其他容器通过挂载这个容器实现数据共享，挂载数据卷的容器，就叫做数据卷容器
 ### 架构
-![avatar](https://github.com/linzh17/docker-learning/blob/master/%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8%E6%9E%B6%E6%9E%84.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%AE%B9%E5%99%A8%E6%9E%B6%E6%9E%84.png?raw=true)
 
 ###    挂载数据卷容器的方法
     $ docker run --volumes-from [CONTAINER NAME]
@@ -54,7 +54,7 @@
 ### 数据卷的备份和还原
 ####    数据备份方法
     架构
-![avatar](https://github.com/linzh17/docker-learning/blob/master/%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%A4%87%E4%BB%BD.png?raw=true)       
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/%E6%95%B0%E6%8D%AE%E5%8D%B7%E5%A4%87%E4%BB%BD.png?raw=true)       
 ```
     $ docker run --volumes-from [container name] -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar
     -v 指定备份的路径或目录

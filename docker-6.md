@@ -4,7 +4,7 @@
 
     $ ifconfig
     如下图
-![avatar](https://github.com/linzh17/docker-learning/blob/master/2018-09-15%2014-55-44%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/2018-09-15%2014-55-44%20%E7%9A%84%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png?raw=true)
 
 ### docker0 
     linux 虚拟网桥
@@ -22,7 +22,7 @@
     $ sudo brctl show
     运行容器时，docker 会自动生成一个网桥
     原理下图
-![avatar](https://github.com/linzh17/docker-learning/blob/master/%E8%99%9A%E6%8B%9F%E7%BD%91%E6%A1%A5.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/%E8%99%9A%E6%8B%9F%E7%BD%91%E6%A1%A5.png?raw=true)
 
 
 ### 自定义docker0
@@ -33,7 +33,7 @@
     1. 添加虚拟网桥
     $ sudo bctrl addbr br0
     $ sudo ifconfig br0 192.168.100.1 netmask 255.255.255.0
-    2. 更改docker 守护进程的启动配置：
+    1. 更改docker 守护进程的启动配置：
     /lib/systemd/system/docker.service Execstart 后添加参数
     -b=br0
 
@@ -95,7 +95,7 @@
 
 
 ### iptables
-![avatar](https://github.com/linzh17/docker-learning/blob/master/iptables.png?raw=true)
+![avatar](https://github.com/linzh17/docker-learning/blob/master/picture/iptables.png?raw=true)
     iptables是与linux内核集成的包过滤防火墙系统
 #### table
     nat
